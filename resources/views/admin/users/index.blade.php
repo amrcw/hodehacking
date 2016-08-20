@@ -6,6 +6,7 @@
         <thead>
         <tr>
             <th>ID</th>
+            <th>Photo</th>
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
@@ -18,7 +19,8 @@
         @foreach($users as $user)
             <tr>
                 <td>{{$user->id}}</td>
-                <td>{{$user->name}}</td>
+                <td><img height="50" src="{{$user->photo ? $user->photo->file : 'http://localhost/codehacking/public/images/Noimage.jpg'}}" alt="" class="image-responsive image-rounded"></td>
+                <td><a href="{{route('admin.user.edit',$user->id)}}">{{$user->name}}</a></td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->role->name}}</td>
                 <td>{{$user->is_active == 1 ? 'Active' : 'Not-Active'}}</td>
