@@ -2,7 +2,12 @@
 @section('content')
 
     <h1>User Information</h1>
-    <table class="table">
+    <div class="row">
+    @if(Session::has('delete_user'))
+        <p class="alert alert-danger">{{session('delete_user')}}</p>
+        @endif
+    </div>
+        <table class="table">
         <thead>
         <tr>
             <th>ID</th>
